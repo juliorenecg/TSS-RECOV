@@ -1,10 +1,11 @@
 import  PropTypes from "prop-types";
+import { existLogedUser } from "../../helpers";
 import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
 import "./NavBar.css";
 
 export const NavBar = ({color,userName,logged}) => {
   const fullName=localStorage.getItem("nombre_completo");
-  console.log(fullName);
+
   return (
     <nav className={`nav-bar d-flex justify-content-between flex-row shadow-sm p-3 bg-${color}`} >
         <div className="d-flex flex-row">
