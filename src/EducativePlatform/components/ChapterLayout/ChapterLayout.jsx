@@ -98,7 +98,7 @@ export const ChapterLayout = ({ capitulo }) => {
             data-bs-target={`#flush-collapse-c`}
             aria-expanded="false"
             aria-controls={`#flush-collapse-c`}
-            onClick={()=>{navigate(`practicas/${id_capitulo}`)}}
+            onClick={()=>{navigate(`practica/${id_capitulo}`)}}
           >
             <b>Ejemplos</b>
           </button>

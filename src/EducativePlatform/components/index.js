@@ -13,3 +13,5 @@ export * from "./NewContentForm/NewContentForm";
 export * from "./ChapterLayout/ChapterLayout";
 export * from "./LogoutBtn/LogoutBtn";
 export * from "./MaterialCard/MaterialCard";
+export * from "./PracticeCard/PracticeCard";
+export * from "./RunCodeBtn/RunCodeBtn";
