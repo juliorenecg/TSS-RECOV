@@ -6,6 +6,7 @@ import { ClassContent, ClassPage, CodeEditorPage, CreateContentPage, JoinClassPa
 import { AportesRecientes } from "../../pages/AportesRecientes/AportesRecientes";
 import { ContribuirPage } from "../../pages/Contribuir/ContribuirPage";
 import { MisAportes } from "../../pages/MisAportes/MisAportes";
+import { SubirAporte } from "../../pages/SubirAporte/SubirAporte";
 
 export const AuthenticatedRoutes = () => {
 
@@ -30,6 +31,7 @@ export const AuthenticatedRoutes = () => {
             <Route path="/contribuir" element={existLogedUser()?<ContribuirPage/>:<Navigate to="/"/>}/>
             <Route path="/contribuir/MisAportes" element={existLogedUser()?<MisAportes/>:<Navigate to="/"/>}/>
             <Route path="/contribuir/AportesRecientes" element={existLogedUser()?<AportesRecientes/>:<Navigate to="/"/>}/>
+            <Route path="/contribuir/SubirAporte" element={existLogedUser()?<SubirAporte/>:<Navigate to="/"/>}/>
           </Routes>
         </div>
       </div>

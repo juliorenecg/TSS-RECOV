@@ -5,11 +5,17 @@ import { Link } from "react-router-dom";
 export const ContribuirPage = () => {
   return (
     <div>
-      <Link to={`/clases/contribuir/MisAportes`}>
-        <div>
-          <h1>Mis aportes</h1>
-        </div>
-      </Link>
+      <div>
+        <h1>Mis aportes</h1>
+        <Link to={`/clases/contribuir/MisAportes`}>
+          <p>Revisar mis aportes</p>
+        </Link>
+        <Link to={`/clases/contribuir/SubirAporte`}>
+          <p>Subir aporte</p>
+        </Link>
+        
+      </div>
+
       <Link to={`/clases/contribuir/AportesRecientes`}>
         <div>
           <h1>Aportes recientes</h1>
