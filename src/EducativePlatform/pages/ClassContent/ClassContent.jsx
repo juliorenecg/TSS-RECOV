@@ -1,7 +1,13 @@
-import { useNavigate, useParams } from "react-router-dom"
-import { useFetch } from "../../../hooks/useFetch/useFetch";
-import { ChapterLayout } from "../../components/ChapterLayout/ChapterLayout";
-import "./ClassContent.css"
+import './ClassContent.css';
+
+import {
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
+
+import { useFetch } from '../../../hooks/useFetch/useFetch';
+import { ChapterLayout } from '../../components/ChapterLayout/ChapterLayout';
+
 export const ClassContent = () => {
 const user_rol=localStorage.getItem("id_rol");
 const {id}=useParams();
@@ -18,8 +24,8 @@ const {data,isLoading,hasError}=content;
                   className="text-light py-2 px-3 mx-auto d-block my-3" 
                   style={{"backgroundColor":"#1D2939","borderRadius":"20px" }}
                   onClick={()=>{navigate("crear-capitulo")}}
-                  >Nuevo Cápitulo </button>
-                <p>La clase esta vacia, puedes crear contenido presionando el boton “Nuevo Capitulo”</p>
+                  >Nuevo Tema </button>
+                <p>La clase esta vacia, puedes crear contenido presionando el boton “Nuevo Tema</p>
                 <div className="hand-image mx-auto"></div>
                 </> :<>
                 <p>Todavia no se ha publicado contenido</p>

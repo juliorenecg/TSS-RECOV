@@ -1,12 +1,31 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { NavBar, SideBar } from "../../components";
-import { existLogedUser } from "../../helpers";
+import {
+  Navigate,
+  Route,
+  Routes,
+} from 'react-router-dom';
 
-import { ClassContent, ClassPage, CodeEditorPage, CreateContentPage, JoinClassPage, MaterialPage, PracticePage, RegisterClassPage } from "../../pages";
-import { AportesRecientes } from "../../pages/AportesRecientes/AportesRecientes";
-import { ContribuirPage } from "../../pages/Contribuir/ContribuirPage";
-import { MisAportes } from "../../pages/MisAportes/MisAportes";
-import { SubirAporte } from "../../pages/SubirAporte/SubirAporte";
+import {
+  NavBar,
+  SideBar,
+} from '../../components';
+import { existLogedUser } from '../../helpers';
+import {
+  ClassContent,
+  ClassPage,
+  CodeEditorPage,
+  CreateContentPage,
+  JoinClassPage,
+  MaterialPage,
+  PracticePage,
+  RegisterClassPage,
+} from '../../pages';
+import {
+  AportesRecientes,
+} from '../../pages/AportesRecientes/AportesRecientes';
+import { ContribuirPage } from '../../pages/Contribuir/ContribuirPage';
+import { MisAportes } from '../../pages/MisAportes/MisAportes';
+import { PaginaPrincipal } from '../../pages/PaginaPrincipal/PaginaPrincipal';
+import { SubirAporte } from '../../pages/SubirAporte/SubirAporte';
 
 export const AuthenticatedRoutes = () => {
 
@@ -21,6 +40,7 @@ export const AuthenticatedRoutes = () => {
         <div className="main-content col-10">
           <Routes>
             <Route path="" element={<ClassPage/>} />
+            <Route path="/PaginaPrincipal" element={existLogedUser()?<PaginaPrincipal/>:<Navigate to="/"/>}/>
             <Route path="/crear-clase" element={existLogedUser()?<RegisterClassPage/>:<Navigate to="/"/>}/>
             <Route path="/unirse-clase" element={existLogedUser()? <JoinClassPage/> :<Navigate to="/"/>}/>
             <Route path="/:id" element={ existLogedUser()?<ClassContent/>:<Navigate to="/"/>}/>
