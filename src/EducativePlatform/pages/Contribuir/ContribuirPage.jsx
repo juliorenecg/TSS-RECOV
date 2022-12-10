@@ -31,7 +31,9 @@ export const ContribuirPage = () => {
           <h1>Aportes recientes: </h1>
         </div>
       </Link>
-      <div className={styles.Titulo}>
+      
+        <div className={styles.Titulo}>
+        <Link to={`/clases/contribuir/Aporte`}>
         <div className={styles.Class}>
           <img src={PerfilU} alt="" className={styles.foto} />
           <p>
@@ -41,6 +43,7 @@ export const ContribuirPage = () => {
             pariatur iusto!
           </p>
         </div>
+        </Link>
         <div className={styles.Class}>
           <img src={PerfilU} alt="" className={styles.foto} />
           <p>

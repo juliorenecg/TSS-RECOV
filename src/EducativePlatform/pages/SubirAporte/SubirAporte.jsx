@@ -66,11 +66,29 @@ export const SubirAporte = () => {
           type="text"
           onChange={onFormUpdate}
           name ="className"></input>
+          <label htmlFor="className" className="">
+            Ingrese el ClassName: 
+          </label>
+          <input
+          type="text"
+          onChange={onFormUpdate}
+          name ="className"></input>
           <br />
           <br />
           <label htmlFor="CodigoEjem" className={styles.textform}>
             Codigo del ejemplo:{" "}
           </label>
+          <AceEditor mode={"Java"}
+                
+                value={codigo}
+                fontSize={14}
+                setOptions={{
+                  enableLiveAutocompletion: true,
+                  showLineNumbers: true,
+                  }}
+                editorProps={{ $blockScrolling: false }}
+                onChange={onCodeChange}
+                />
           <AceEditor mode={"Java"}
                 
                 value={codigo}

@@ -1,6 +1,9 @@
 import { Footer, LoginForm } from "../../components";
+import { get } from "../../helpers";
 import "./LandingPage.css";
 export const LandingPage = () => {
+  
+  get("http://142.93.203.113:3001/api/users/1/class");
 
   return (
     <main className="d-flex flex-column ">
