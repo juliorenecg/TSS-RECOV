@@ -1,8 +1,9 @@
 export const post=async(url,body)=>{
-    try {
+  console.log(body)  
+  try {
       console.log(JSON.stringify(body));
         const rawResponse = await 
-          fetch("http://142.93.203.113:3001/api/register",
+          fetch(url,
 {
     headers: {
       'Accept': 'application/json',

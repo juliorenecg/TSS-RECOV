@@ -6,6 +6,7 @@ import { useFetch, useForm } from "../../../hooks";
 import { PracticeCard } from "../../components";
 import { Link } from "react-router-dom";
 import { CodeEditor } from "../../../UI/components/CodeEditor/CodeEditor";
+import { post } from "../../helpers";
 export const SubirAporte = () => {
   const [titulocap, setTitulocap] = useState("");
 
@@ -21,8 +22,11 @@ export const SubirAporte = () => {
   const onCodeChange=(newValue)=>{
     console.log(newValue)
     setCodigo(newValue)}
+  
   const subirContrib = () =>{
-    post ("http://142.93.203.113:3001/api/contributions", {...form,codigo: codigo})
+    const id_usuario = localStorage.getItem("id_usuario")
+    console.log(id_usuario)
+    post ("http://142.93.203.113:3001/api/contributions", {...form,codigo: codigo,id_usuario: id_usuario})
   }
   return (
     <div className={styles.Titulo}>
@@ -81,7 +85,7 @@ export const SubirAporte = () => {
         </form>
         <br />
         <br />
-        <button id="botonNuevoCap" type="button" className={styles.button}>
+        <button id="botonNuevoCap" type="button" className={styles.button} onClick ={subirContrib}>
           Subir{" "}
         </button>
         <br />
