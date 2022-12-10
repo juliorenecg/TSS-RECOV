@@ -1,14 +1,29 @@
 import { useState } from "react";
 import styles from "./SubirAporte.module.css";
+import AceEditor from "react-ace";
 import { useParams } from "react-router-dom";
-import { useFetch } from "../../../hooks";
+import { useFetch, useForm } from "../../../hooks";
 import { PracticeCard } from "../../components";
 import { Link } from "react-router-dom";
+import { CodeEditor } from "../../../UI/components/CodeEditor/CodeEditor";
 export const SubirAporte = () => {
   const [titulocap, setTitulocap] = useState("");
 
   const [DescripEjem, setDescripEjem] = useState("");
   const [CodigoEjem, setCodigoEjem] = useState("");
+  const formularioSubir = {id_usuario:"",
+  titulo:"",
+  descripcion:"",
+  className:"",
+  codigo:""}
+  const {form,onFormUpdate} = useForm(formularioSubir)
+  const [codigo, setCodigo] = useState()
+  const onCodeChange=(newValue)=>{
+    console.log(newValue)
+    setCodigo(newValue)}
+  const subirContrib = () =>{
+    post ("http://142.93.203.113:3001/api/contributions", {...form,codigo: codigo})
+  }
   return (
     <div className={styles.Titulo}>
       <p>Crear un nuevo aporte</p>
@@ -23,10 +38,9 @@ export const SubirAporte = () => {
           <input
             type="text"
             id="titulocap"
-            name="titulocap"
+            name="titulo"
             placeholder="Ingrese nombre del capitulo"
-            value={titulocap}
-            onChange={(e) => setTitulocap(e.target.value)}
+            onChange={onFormUpdate}
             className={styles.box}
           />
 
@@ -38,25 +52,32 @@ export const SubirAporte = () => {
           <input
             type="text"
             id="DescripEjem"
-            name="DescripEjem"
-            value={DescripEjem}
-            onChange={(e) => setDescripEjem(e.target.value)}
+            name="descripcion"
+            onChange={onFormUpdate}
             className={styles.box}
-          />
-
+          /><label htmlFor="className" className="">
+            Ingrese el ClassName: 
+          </label>
+          <input
+          type="text"
+          onChange={onFormUpdate}
+          name ="className"></input>
           <br />
           <br />
           <label htmlFor="CodigoEjem" className={styles.textform}>
             Codigo del ejemplo:{" "}
           </label>
-          <input
-            type="text"
-            id="CodigoEjem"
-            name="CodigoEjem"
-            value={CodigoEjem}
-            onChange={(e) => setCodigoEjem(e.target.value)}
-            className={styles.box}
-          />
+          <AceEditor mode={"Java"}
+                
+                value={codigo}
+                fontSize={14}
+                setOptions={{
+                  enableLiveAutocompletion: true,
+                  showLineNumbers: true,
+                  }}
+                editorProps={{ $blockScrolling: false }}
+                onChange={onCodeChange}
+                />
         </form>
         <br />
         <br />

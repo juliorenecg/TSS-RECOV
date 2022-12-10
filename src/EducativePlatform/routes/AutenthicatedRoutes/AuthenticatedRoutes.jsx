@@ -7,6 +7,7 @@ import { AportesRecientes } from "../../pages/AportesRecientes/AportesRecientes"
 import { ContribuirPage } from "../../pages/Contribuir/ContribuirPage";
 import { MisAportes } from "../../pages/MisAportes/MisAportes";
 import { SubirAporte } from "../../pages/SubirAporte/SubirAporte";
+import { Aporte } from "../../pages/Aportes/Aporte";
 
 export const AuthenticatedRoutes = () => {
 
@@ -32,6 +33,7 @@ export const AuthenticatedRoutes = () => {
             <Route path="/contribuir/MisAportes" element={existLogedUser()?<MisAportes/>:<Navigate to="/"/>}/>
             <Route path="/contribuir/AportesRecientes" element={existLogedUser()?<AportesRecientes/>:<Navigate to="/"/>}/>
             <Route path="/contribuir/SubirAporte" element={existLogedUser()?<SubirAporte/>:<Navigate to="/"/>}/>
+            <Route path="/contribuir/Aporte" element={existLogedUser()?<Aporte/>:<Navigate to="/"/>}/>
           </Routes>
         </div>
       </div>
