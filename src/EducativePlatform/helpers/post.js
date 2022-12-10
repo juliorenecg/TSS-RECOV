@@ -1,15 +1,19 @@
 export const post=async(url,body)=>{
     try {
-        const rawResponse = await fetch(url, {
-          method: "POST",
-          headers: {
-                    "Accept": "application/json",
-                    "Content-Type": "application/json"},
-          body: JSON.stringify(body)
-        });
-    
+      console.log(JSON.stringify(body));
+        const rawResponse = await 
+          fetch("http://142.93.203.113:3001/api/register",
+{
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: "POST",
+    body: JSON.stringify(body)
+})
+        
+    console.log(rawResponse)
         const res = await rawResponse.json();
-        console.log(res);
         return res;
       } catch (error) {
         console.error(error);
